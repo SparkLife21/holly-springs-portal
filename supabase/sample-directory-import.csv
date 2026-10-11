@@ -1,0 +1,3 @@
+household_name,address,primary_phone,first_name,last_name,preferred_name,email,mobile_phone,home_phone,birthdate,is_child
+Example,10 Example Lane, Harmony NC 28634,704-555-0170,Ada,Example,,ada.example@example.com,704-555-0171,,,no
+Example,10 Example Lane, Harmony NC 28634,704-555-0170,Ben,Example,,,,2019-05-01,yes
