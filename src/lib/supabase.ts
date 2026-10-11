@@ -3,7 +3,20 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js"
 const url = import.meta.env.VITE_SUPABASE_URL ?? ""
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY ?? ""
 
-export const isSupabaseConfigured = url.startsWith("https://") && anonKey.length > 20
+export const isSupabaseConfigured =
+  anonKey.length > 20 && (url.startsWith("https://") || isLoopbackUrl(url))
+
+function isLoopbackUrl(value: string) {
+  try {
+    const parsed = new URL(value)
+    return (
+      parsed.protocol === "http:" &&
+      (parsed.hostname === "localhost" || parsed.hostname === "127.0.0.1")
+    )
+  } catch {
+    return false
+  }
+}
 
 const sharedTabletKey = "hsbc-shared-tablet"
 
